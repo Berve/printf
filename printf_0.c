@@ -49,30 +49,39 @@ int _printf(const char *format, ...)
 
 		format++;
 	}
-
 	va_end(args);
-
 	return (count);
 }
 
+/**
+ * print_char - function for character
+ * @args: va_list argument for print_char
+ * Return: 1 when successful
+ */
+
 int print_char(va_list args)
 {
-    char character = (char)va_arg(args, int);
-    putchar(character);
-    return (1);
+	char character = (char)va_arg(args, int);
+
+	putchar(character);
+	return (1);
 }
+/**
+ * print_string- function for character
+ * @args: va_list argument for print_char
+ * Return: return count
+ */
 
 int print_string(va_list args)
 {
-    char *string_ = va_arg(args, char *);
-    int count = 0;
+	char *string_ = va_arg(args, char *);
+	int count = 0;
+	while (*string_ != '\0')
+	{
+		putchar(*string_);
+		string_++;
+		count++;
+	}
 
-    while (*string_ != '\0')
-    {
-        putchar(*string_);
-        string_++;
-        count++;
-    }
-
-    return (count);
+	return (count);
 }
