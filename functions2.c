@@ -1,10 +1,11 @@
 i#include "main.h"
 
-/** PRINT POINTER **/
+/*PRINT POINTER*/
 /**
  * print_pointer - The functions that prints the value of a pointer variable
  * @types: The list a of arguments
  * @buffer: The buffer array to handle print
+ *
  * @flags: This calculates active flags
  * @width: To get width
  * @precision: This specifies precision
@@ -12,7 +13,7 @@ i#include "main.h"
  * Return: The Number of chars printed.
  */
 int print_pointer(va_list types, char buffer[],
-	int flags, int width, int precision, int size)
+int flags, int width, int precision, int size)
 {
 	char extra_c = 0, padd = ' ';
 	int ind = BUFF_SIZE - 2, length = 2, padd_start = 1; /* length=2, for '0x' */
@@ -52,7 +53,7 @@ int print_pointer(va_list types, char buffer[],
 		width, flags, padd, extra_c, padd_start));
 }
 
-/** PRINT NON PRINTABLE ***/
+/** PRINT NON PRINTABLE **/
 /**
  * print_non_printable - A function that prints ascii
  * codes in hexa of non printable chars
