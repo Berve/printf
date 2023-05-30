@@ -12,10 +12,9 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int count = 0;
-	char character;
 
 	va_start(args, format);
-	
+
 	while (*format != '\0')
 	{
 		if (*format == '%')
@@ -23,37 +22,66 @@ int _printf(const char *format, ...)
 			format++;
 
 			if (*format == 'c')
-			{
-				character = (char)va_arg(args, int);
-				putchar(character);
-				count++;
-			}
-			else if (*format == 's')
-			{
-				char *string_ = va_arg(args, char *);
+				count += print_char(args);
 
-				while (*string_ != '\0')
-				{
-					putchar(*string_);
-					string_++;
-					count++;
-				}
-			}
+			else if (*format == 's')
+				count += print_string(args);
+
 			else if (*format == '%')
 			{
 				putchar('%');
 				count++;
 			}
-		}
+
 			else
 			{
-				putchar (*format);
+				putchar ('%');
+				count++;
+				putchar(*format);
 				count++;
 			}
-			format++;
+		}
+		else
+		{
+			putchar (*format);
+			count++;
+		}
+
+		format++;
+	}
+	va_end(args);
+	return (count);
+}
+
+/**
+ * print_char - function for character
+ * @args: va_list argument for print_char
+ * Return: 1 when successful
+ */
+
+int print_char(va_list args)
+{
+	char character = (char)va_arg(args, int);
+
+	putchar(character);
+	return (1);
+}
+/**
+ * print_string- function for character
+ * @args: va_list argument for print_char
+ * Return: return count
+ */
+
+int print_string(va_list args)
+{
+	char *string_ = va_arg(args, char *);
+	int count = 0;
+	while (*string_ != '\0')
+	{
+		putchar(*string_);
+		string_++;
+		count++;
 	}
 
-	va_end(args);
-
-	return count;
+	return (count);
 }
