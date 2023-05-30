@@ -68,7 +68,7 @@ int print_char(va_list args)
 }
 /**
  * print_string- function for character
- * @args: va_list argument for print_char
+ * @args: va_list argument for print_string
  * Return: return count
  */
 
