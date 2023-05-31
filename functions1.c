@@ -3,7 +3,7 @@
 /**
  * print_unsigned -a funtion to display an unsigned number
  * @types: Lists of arguments
- * @buffer: Buffer array 
+ * @buffer: Buffer array
  * @flags:  Calculates active flags
  * @width: get width
  * @precision: Precision specifier
