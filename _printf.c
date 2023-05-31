@@ -30,6 +30,7 @@ int _printf(const char *format, ...)
 	print_buffer(buffer, &buff_ind);
 	/* write(1, &format[i], 1);*/
 	printed_chars++;
+	}
 	else
 	{
 	print_buffer(buffer, &buff_ind);
@@ -42,7 +43,7 @@ int _printf(const char *format, ...)
 	flags, width, precision, size);
 	if (printed == -1)
 	return (-1);
-	printed_char += printed;
+	printed_chars += printed;
 	}
 	}
 
